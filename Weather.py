@@ -12,7 +12,7 @@ def weather(city):
         st.write('🏙City: ',city)
         st.write('🌡Temperature: ',temperature)
         st.write('📝Desciption: ',description)
-        if temperature<10:
+        if int(temperature)<=10:
             st.snow()
         else:
             st.balloons()    
