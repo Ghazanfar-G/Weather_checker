@@ -12,10 +12,15 @@ def weather(city):
         st.write('🏙City: ',city)
         st.write('🌡Temperature: ',temperature)
         st.write('📝Desciption: ',description)
-        if float(temperature)<=10:
-            st.snow()
-        else:
-            st.balloons()    
+        temperature=float(main.get('temp',0))
+        if st.button('Check'):
+            st.write('🏙City: ',city)
+            st.write('🌡Temperature: ',temperature)
+            st.write('📝Desciption: ',description)
+            if temperature<=10:
+                st.snow()
+            else:
+                st.balloons()
     else:
         st.error('🚫City not found.')
 if __name__=='__main__':
