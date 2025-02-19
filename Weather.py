@@ -18,15 +18,11 @@ def weather(city,image):
     if data.get('cod')!=404:
         main=data.get('main',{})
         description=data.get('weather',[{}])[0].get('description',"N/A")
-        temperature=main.get('temp','N/A')
-        st.write('🏙City: ',city)
-        st.write('🌡Temperature: ',temperature)
-        st.write('📝Desciption: ',description)
         temperature=float(main.get('temp',0))
         if st.button('Check'):
-            st.write('🏙City: ',city)
-            st.write('🌡Temperature: ',temperature)
-            st.write('📝Desciption: ',description)
+            st.success(f'🏙City: {city}')
+            st.success(f'🌡Temperature:{temperature} ')
+            st.success(f'📝Desciption: {description}')
             if temperature<=10:
                 st.snow()
             else:
