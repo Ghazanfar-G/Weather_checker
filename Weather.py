@@ -1,6 +1,16 @@
 import requests
 import streamlit as st
-def weather(city):
+def weather(city,image):
+    st.markdown(f'''
+        <style>
+    .stApp{{
+        background-image: url("{image}");
+        background-size: cover;
+        background-position: top;
+        background-repeat: no-repeat;
+    }}
+</style>''',unsafe_allow_html=True
+    )
     api=st.secrets['api']  
     url=f'https://api.openweathermap.org/data/2.5/weather?q={city}&appid={api}&units=metric'
     response=requests.get(url)
@@ -25,4 +35,5 @@ def weather(city):
         st.error('🚫City not found.')
 if __name__=='__main__':
     city=st.text_input("Enter city name here : ")
-    weather(city)       
+    image='https://github.com/Ghazanfar-G/Weather_checker/blob/main/weather.png?raw=true'
+    weather(city,image)       
